@@ -11,7 +11,7 @@ end
 urls.each_with_index do |url, count|
   begin
     doc = Nokogiri.parse(open(url).read)
-    node = doc.xpath("//dt/a[text()='Download video to desktop (MP4)']")
+    node = doc.xpath("//dt/a[text()='Watch high-res video (MP4)']")
     video = "http://www.ted.com" + node.attribute("href").to_s
     videoName = "videos/(#{count+1})" + url.match(/http:\/\/www.ted.com\/talks\/(.*)\.html/i)[1] + ".mp4"
     puts "Downloading #{url} to #{videoName}"
